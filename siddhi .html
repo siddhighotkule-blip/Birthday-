@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Prathamesh ❤️</title>
+
+<style>
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg,#ff9a9e,#fad0c4);
+    text-align:center;
+    color:#333;
+}
+
+.container{
+    max-width:700px;
+    margin:50px auto;
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 0 20px rgba(0,0,0,0.15);
+}
+
+h1{
+    color:#ff4f7b;
+}
+
+.heart{
+    font-size:60px;
+    animation:beat 1s infinite;
+}
+
+@keyframes beat{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.15);}
+    100%{transform:scale(1);}
+}
+
+.countdown{
+    font-size:24px;
+    margin:20px 0;
+    font-weight:bold;
+}
+
+.message{
+    font-size:18px;
+    line-height:1.7;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="heart">❤️</div>
+
+    <h1>Happy Birthday Baby 🎂</h1>
+
+
+    <div class="countdown" id="countdown"></div>
+
+    <div class="message">
+        Dear Baby,<br><br>
+
+        Wishing you the happiest birthday ever. ✨<br>
+        Thank you for all the smiles, memories and moments we've shared.<br>
+        I hope this year brings you happiness, success and everything you wish for.<br><br>
+
+        Enjoy your special day! ❤️<br><br>
+
+        Love,<br>
+        Siddhi 💖
+    </div>
+
+    <br>
+
+    <!-- Replace birthday-song.mp3 with your audio file -->
+    <audio controls autoplay loop>
+        <source src="birthday-song.mp3" type="audio/mpeg">
+    </audio>
+
+</div>
+
+<script>
+const birthday = new Date("June 17, 2026 00:00:00").getTime();
+
+const timer = setInterval(function() {
+    const now = new Date().getTime();
+    const distance = birthday - now;
+
+    const days = Math.floor(distance/(1000*60*60*24));
+    const hours = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+    const minutes = Math.floor((distance%(1000*60*60))/(1000*60));
+    const seconds = Math.floor((distance%(1000*60))/1000);
+
+    document.getElementById("countdown").innerHTML =
+        "🎉 " + days + "d " + hours + "h " +
+        minutes + "m " + seconds + "s";
+
+    if(distance < 0){
+        clearInterval(timer);
+        document.getElementById("countdown").innerHTML =
+        "🎂 Happy Birthday Baby! ❤️";
+    }
+},1000);
+</script>
+
+</body>
+</html>
